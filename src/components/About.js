@@ -95,7 +95,7 @@ class About extends Component {
                                 to additional content. This card has even longer content than the
                                 first to show that equal height action.
                             </Card.Text>
-                            <a href="https://www.linkedin.com/in/kylewhiteseattle/">
+                            <a href="https://www.linkedin.com/in/yaahmeed/">
                                 <Image src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Linkedin_glyph_svg-256.png" fluid style={{ height: '30px' }} />
                             </a>
                             <a href="https://github.com/Yaahmeed">
