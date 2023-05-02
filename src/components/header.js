@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom"
 import "../App.css";
 
 const ProfileDropdown = () => {
@@ -34,22 +35,22 @@ const ProfileDropdown = () => {
     );
   };
 
-class Header extends Component {
+  class Header extends Component {
     render() {
       return (
         <>
           <Navbar bg="light" expand="lg">
             <Container>
-              <Navbar.Brand href="#home">My Work Schedule</Navbar.Brand>
+              <Navbar.Brand as={Link} to="/">My Work Schedule</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/about">About</Nav.Link>
+                  <Nav.Link as={Link} to="/">Home</Nav.Link>
+                  <Nav.Link as={Link} to="/about">About</Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/addEmployee">Add Employee</NavDropdown.Item>
-                    <NavDropdown.Item href="/viewEmployees">View Employees</NavDropdown.Item>
-                    <NavDropdown.Item href="/displayCalendar">Generate Schedule</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/addEmployee">Add Employee</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/viewEmployees">View Employees</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/displayCalendar">Generate Schedule</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Past Schedules</NavDropdown.Item>
                   </NavDropdown>

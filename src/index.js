@@ -22,6 +22,8 @@ const Main = () => {
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}
+      cacheLocation="localstorage"
+      useRefreshTokens
     >
       <App key={key} />
     </Auth0Provider>
