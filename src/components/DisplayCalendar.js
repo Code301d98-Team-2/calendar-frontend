@@ -1,14 +1,14 @@
-import { Component } from "react";
-import CalendarApp from "./Calendar";
+// import { Component } from "react";
+// import CalendarApp from "./Calendar";
 
-class RenderCalendar extends Component {
-    render() {
-        return (
-            <div>
-                <CalendarApp />
-            </div>
-        )
-    }
-}
+// class RenderCalendar extends Component {
+//     render() {
+//         return (
+//             <div>
+//                 <CalendarApp />
+//             </div>
+//         )
+//     }
+// }
 
-export default RenderCalendar;
+// export default RenderCalendar;

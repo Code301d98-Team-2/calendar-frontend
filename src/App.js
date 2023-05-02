@@ -4,7 +4,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import Header from './components/header';
 import Footer from './components/Footer';
 import Body from './components/Body';
-import DisplayCalendar from './components/DisplayCalendar';
+import EmployeeSchedule from './components/Calendar';
 import EmployeeData from './components/EmployeeData';
 import EmployeeForm from './components/EmployeeForm';
 import About from './components/About';
@@ -35,7 +35,7 @@ function App(props) {
           <Route
             exact
             path="/displayCalendar"
-            element={<DisplayCalendar />}
+            element={<EmployeeSchedule />}
           />
         </Routes>
         <Footer />
