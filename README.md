@@ -1,3 +1,19 @@
+
+# MediCal (Medical Calendar)
+
+## Team Members
+
+- Kyle White
+- Josh Coffey
+- Juan Olmedo
+- Yaz Ahmeed
+- Jeanette Leyva
+
+### PM Tools
+
+- [Trello] https://trello.com/b/P9d5qZe6/team-2-app
+- [Invision] https://kylewhite378860.invisionapp.com/freehand/301-Final-Project-Wireframe-Team-2-qCW8rIXAf?duplicateSuccess=true
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
