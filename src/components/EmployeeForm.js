@@ -44,7 +44,7 @@ class EmployeeForm extends Component{
                     First Name:
                     </Form.Label>
                     <Col sm={5}>
-                    <Form.Control type="text" placeholder="First Name" />
+                    <Form.Control type="text" placeholder="Jane" />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="lName">
@@ -52,7 +52,7 @@ class EmployeeForm extends Component{
                     Last Name:
                     </Form.Label>
                     <Col sm={5}>
-                    <Form.Control type="text" placeholder="Last Name" />
+                    <Form.Control type="text" placeholder="Doe" />
                     </Col>
                     </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="email">
@@ -60,7 +60,7 @@ class EmployeeForm extends Component{
                     Email:
                     </Form.Label>
                     <Col sm={5}>
-                    <Form.Control type="text" placeholder="email" />
+                    <Form.Control type="text" placeholder="Jane.Doe@ExampleHospital.org" />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="employeeId">
@@ -68,7 +68,7 @@ class EmployeeForm extends Component{
                     Employee ID:
                     </Form.Label>
                     <Col sm={5}>
-                    <Form.Control type="text" placeholder="Employee ID" />
+                    <Form.Control type="text" placeholder="JDoe123456" />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3"controlId="employeeLevel">

@@ -1,39 +1,37 @@
 import { Component } from "react";
 import "tachyons";
 import { Heading, Subhead } from "rebass";
-import {
-    Hero,
-    Flex,
-    CallToAction,
-    Section
-    // ScrollDownIndicator
-  } from "react-landing-page"
+import { Hero, Flex, CallToAction, Section } from "react-landing-page"
+import { Link } from "react-router-dom"
 
-class Body extends Component{
-    render(){
-        return(
+class Body extends Component {
+    render() {
+        return (
             <>
-            <Section>
-                <Hero
-                color="white"
-                backgroundImage="https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg"
-                bg="black"
-                bgOpacity={0.1}
-                width={1}
-                >
-                <Heading fontSize={50}>Hospital Scheduling Application</Heading>
-                <Subhead fontSize={18}>A solution to scedule your employees for work </Subhead>
-                <Flex mt={3}>
-                    <CallToAction bg="grey" mr={3}>
-                    Start Scheduling
-                    </CallToAction>
-                    <CallToAction>Start Adding Employees</CallToAction>
-                </Flex>
-                {/* <ScrollDownIndicator /> */}
-                </Hero>
-            </Section>
+                <Section>
+                    <Hero
+                        color="white"
+                        backgroundImage="https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg"
+                        bg="black"
+                        bgOpacity={0.1}
+                        width={1}
+                    >
+                        <Heading fontSize={50}>Hospital Scheduling Application</Heading>
+                        <Subhead fontSize={18}>A solution to scedule your employees for work </Subhead>
+                        <Flex mt={3}>
+                            <Link to="/displayCalendar" className="cta-link">
+                                <CallToAction bg="grey" mr={3}>
+                                    Start Scheduling
+                                </CallToAction>
+                            </Link>
+                            <Link to="/addEmployee" className="cta-link">
+                                <CallToAction>Add an Employee</CallToAction>
+                            </Link>
+                        </Flex>
+                    </Hero>
+                </Section>
             </>
-        )
+        );
     }
 }
 
