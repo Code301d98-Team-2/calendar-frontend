@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import axios from 'axios'
+import CalendarApp from "./Calendar";
 
 class EmployeeForm extends Component{
 
@@ -90,6 +91,7 @@ class EmployeeForm extends Component{
                 </Form.Group>
                 
             </Form>
+            <CalendarApp />
             </>
         )
     }
