@@ -35,10 +35,14 @@ class EmployeeData extends Component {
                     <Row>
                         {this.state.employees.map((employee, index) => (
                             <Col xs={6} md={3}>
-                                <Card key={index}>
+                                <Card
+                                border="info"
+                                style={{ margin: 10 }}
+                                key={index}
+                                >
                                     <Card.Header>{employee.firstName} {employee.lastName}</Card.Header>
-                                    <Card.Body>{employee.level}</Card.Body>
-                                    <Card.Body>{employee.employeeId}</Card.Body>
+                                    <Card.Body>Level: {employee.level}</Card.Body>
+                                    <Card.Body>ID: {employee.employeeId}</Card.Body>
                                 </Card>
                             </Col>
                         ))}
