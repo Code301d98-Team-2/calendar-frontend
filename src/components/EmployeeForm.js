@@ -68,7 +68,7 @@ class EmployeeForm extends Component{
                     Employee ID:
                     </Form.Label>
                     <Col sm={5}>
-                    <Form.Control type="text" placeholder="JDoe123456" />
+                    <Form.Control type="text" placeholder="J" />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3"controlId="employeeLevel">
