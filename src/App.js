@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/header';
 import Footer from './components/Footer';
 import Body from './components/Body';
-import DisplayCalendar from "./components/DisplayCalendar"
+import EmployeeSchedule from './components/Calendar';
 import EmployeeData from './components/EmployeeData';
 import EmployeeForm from './components/EmployeeForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -23,7 +23,7 @@ function App() {
           </Route>
           <Route exact path='/viewEmployees' element=<EmployeeData /> >
           </Route>
-          <Route exact path='/displayCalendar' element=<DisplayCalendar /> >
+          <Route exact path='/displayCalendar' element=<EmployeeSchedule /> >
           </Route>
         </Routes>
         <Footer />
