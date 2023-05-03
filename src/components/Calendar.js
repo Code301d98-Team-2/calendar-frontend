@@ -38,7 +38,7 @@ class EmployeeSchedule extends Component {
   }
   getSchedule = async () => {
     try {
-      let url = `${process.env.REACT_APP_SERVER}/getschedules`;
+      let url = `${process.env.REACT_APP_SERVER}/test2`;
       let urlData = await axios.get(url);
       const shifts = urlData.data;
       const dayShiftPeople = shifts.flatMap(shift => shift.dayShift);
@@ -98,7 +98,8 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople }) {
       dayShiftPeople.forEach(employeeId => {
         events.push(
           {
-            title: `Day Shift - Employee ${employeeId}`,
+            title: `Day Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
+            description: "Yo",
             allDay: false,
             start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0),
             end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0),
@@ -108,7 +109,7 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople }) {
       midShiftPeople.forEach(employeeId => {
         events.push(
           {
-            title: `Mid Shift - Employee ${employeeId}`,
+            title: `Mid Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
             allDay: false,
             start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0),
             end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 0),
@@ -118,7 +119,7 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople }) {
       nightShiftPeople.forEach(employeeId => {
         events.push(
           {
-            title: `Night Shift - Employee ${employeeId}`,
+            title: `Night Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
             allDay: false,
             start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0),
             end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0),
@@ -127,6 +128,7 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople }) {
       });
     }
   }
+
 
   return (
     <div>
