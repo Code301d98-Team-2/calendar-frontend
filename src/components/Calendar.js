@@ -28,37 +28,84 @@ class EmployeeSchedule extends Component {
       shifts: [],
       dayShiftPeople: [],
       midShiftPeople: [],
-      nightShiftPeople: []
+      nightShiftPeople: [],
+      dayShiftPeopleSecond: [],
+      midShiftPeopleSecond: [],
+      nightShiftPeopleSecond: []
     };
   }
 
+  
   componentDidMount() {
     this.getSchedule();
+    // this.getScheduleSecond();
   }
   getSchedule = async () => {
     try {
       let url = `${process.env.REACT_APP_SERVER}/test2`;
       let urlData = await axios.get(url);
       const shifts = urlData.data;
-      const dayShiftPeople = shifts.flatMap(shift => shift.dayShift);
-      const midShiftPeople = shifts.flatMap(shift => shift.midShift);
-      const nightShiftPeople = shifts.flatMap(shift => shift.nightShift);
-      this.setState({ shifts, dayShiftPeople, midShiftPeople, nightShiftPeople });
+      console.log(shifts);
+      const dayShiftPeople = [];
+      const midShiftPeople = [];
+      const nightShiftPeople = [];
+      const dayShiftPeopleSecond = [];
+      const midShiftPeopleSecond = [];
+      const nightShiftPeopleSecond = [];
+      
+      shifts[0].dayShift.forEach(employee => {
+        dayShiftPeople.push(employee);
+      });
+      shifts[0].midShift.forEach(employee => {
+        midShiftPeople.push(employee);
+      });
+      shifts[0].nightShift.forEach(employee => {
+        nightShiftPeople.push(employee);
+      });
+
+  
+      shifts[1].dayShift.forEach(employee => {
+        dayShiftPeopleSecond.push({
+          firstName: employee.firstName,
+          lastName: employee.lastName,
+          level: employee.level
+        });
+      });
+      shifts[1].midShift.forEach(employee => {
+        midShiftPeopleSecond.push({
+          firstName: employee.firstName,
+          lastName: employee.lastName,
+          level: employee.level
+        });
+      });
+      shifts[1].nightShift.forEach(employee => {
+        nightShiftPeopleSecond.push({
+          firstName: employee.firstName,
+          lastName: employee.lastName,
+          level: employee.level
+        });
+      });
+  
+      this.setState({ shifts, dayShiftPeople, midShiftPeople, nightShiftPeople, dayShiftPeopleSecond, midShiftPeopleSecond, nightShiftPeopleSecond });
     } catch (error) {
       console.log(error.message);
     }
   }
-  render() {
-    return (
-      <div>
-        <CalendarApp
-          dayShiftPeople={this.state.dayShiftPeople}
-          midShiftPeople={this.state.midShiftPeople}
-          nightShiftPeople={this.state.nightShiftPeople}
-        />
-      </div>
-    )
-  }
+
+render() {
+  return (
+    <div>
+      <CalendarApp
+        dayShiftPeople={this.state.dayShiftPeople}
+        midShiftPeople={this.state.midShiftPeople}
+        nightShiftPeople={this.state.nightShiftPeople}
+        dayShiftPeopleSecond={this.state.dayShiftPeopleSecond}
+        midShiftPeopleSecond={this.state.midShiftPeopleSecond}
+        nightShiftPeopleSecond={this.state.nightShiftPeopleSecond}
+      />
+    </div>
+  )
+}
 }
 
 function eventStyleGetter(event, start, end, isSelected) {
@@ -83,45 +130,81 @@ function eventStyleGetter(event, start, end, isSelected) {
   };
 }
 
-function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople }) {
+function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople, dayShiftPeopleSecond, midShiftPeopleSecond, nightShiftPeopleSecond }) {
 
   const events = [];
 
-    for (let i = 1; i <= 30; i += 2) {
-      const date = new Date();
-      date.setDate(date.getDate() + i);
-      dayShiftPeople.forEach(employeeId => {
-        events.push(
-          {
-            title: `Day Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
-            description: "Yo",
-            allDay: false,
-            start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0),
-            end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0),
-            color: "blue",
-          });
-      });
-      midShiftPeople.forEach(employeeId => {
-        events.push(
-          {
-            title: `Mid Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
-            allDay: false,
-            start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0),
-            end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 0),
-            color: "green",
-          });
-      });
-      nightShiftPeople.forEach(employeeId => {
-        events.push(
-          {
-            title: `Night Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
-            allDay: false,
-            start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0),
-            end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0),
-            color: "orange",
-          });
-      });
-    }
+  for (let i = 1; i <= 30; i += 2) {
+    const date = new Date();
+    date.setDate(date.getDate() + i);
+    dayShiftPeople.forEach(employeeId => {
+      events.push(
+        {
+          title: `Day Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
+          description: "Yo",
+          allDay: false,
+          start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0),
+          end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0),
+          color: "blue",
+        });
+    });
+    midShiftPeople.forEach(employeeId => {
+      events.push(
+        {
+          title: `Mid Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
+          allDay: false,
+          start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0),
+          end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 0),
+          color: "green",
+        });
+    });
+    nightShiftPeople.forEach(employeeId => {
+      events.push(
+        {
+          title: `Night Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
+          allDay: false,
+          start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0),
+          end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0),
+          color: "orange",
+        });
+    });
+  }
+
+  for (let i = 0; i <= 30; i += 2) {
+    const date = new Date();
+    date.setDate(date.getDate() + i);
+    dayShiftPeopleSecond.forEach(employeeId => {
+      events.push(
+        {
+          title: `Day Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
+          description: "Yo",
+          allDay: false,
+          start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0),
+          end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0),
+          color: "blue",
+        });
+    });
+    midShiftPeopleSecond.forEach(employeeId => {
+      events.push(
+        {
+          title: `Mid Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
+          allDay: false,
+          start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 16, 0, 0),
+          end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 0),
+          color: "green",
+        });
+    });
+    nightShiftPeopleSecond.forEach(employeeId => {
+      events.push(
+        {
+          title: `Night Shift - Employee ${employeeId.firstName} ${employeeId.lastName} Level - ${employeeId.level}`,
+          allDay: false,
+          start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0),
+          end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0),
+          color: "orange",
+        });
+    });
+  }
 
   return (
     <div>
