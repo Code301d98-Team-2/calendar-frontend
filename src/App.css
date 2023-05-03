@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.profile-image {
+  border-radius: 50%;
+}
+
+.ms-auto{
+  display: flex;
+  align-items: right;
+}
