@@ -5,7 +5,6 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-// import DatePicker from "react-datepicker";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { Component } from "react";
@@ -62,7 +61,6 @@ class EmployeeSchedule extends Component {
   }
 }
 
-
 function eventStyleGetter(event, start, end, isSelected) {
   let backgroundColor = "#f4f4f4";
   let borderColor = "#ccc";
@@ -89,12 +87,9 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople }) {
 
   const events = [];
 
-  for (let month = 0; month < 12; month++) {
-    const year = 2023;
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    for (let i = 1; i <= daysInMonth; i++) {
-      const date = new Date(year, month, i);
+    for (let i = 1; i <= 30; i += 2) {
+      const date = new Date();
+      date.setDate(date.getDate() + i);
       dayShiftPeople.forEach(employeeId => {
         events.push(
           {
@@ -127,8 +122,6 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople }) {
           });
       });
     }
-  }
-
 
   return (
     <div>
