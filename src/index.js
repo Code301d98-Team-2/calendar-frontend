@@ -19,6 +19,8 @@ const Main = () => {
       domain={process.env.REACT_APP_DOMAIN}
       clientId={process.env.REACT_APP_CLIENTID}
       onRedirectCallback={onLogout}
+      redirectUri={window.location.origin}
+      logoutUrl={window.location.origin}
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}

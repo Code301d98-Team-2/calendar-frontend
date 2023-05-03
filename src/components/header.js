@@ -26,7 +26,7 @@ const ProfileDropdown = () => {
                 <NavDropdown.Item disabled>{user['https://medicalendar.netlify.app//employee_id']}</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item
-                    onClick={() => logout({ returnTo: process.env.REACT_APP_BASE_URL })}
+                    onClick={() => logout({ returnTo: window.location.origin })}
                 >
                     Log Out
                 </NavDropdown.Item>
