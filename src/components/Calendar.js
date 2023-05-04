@@ -34,11 +34,24 @@ class EmployeeSchedule extends Component {
       midShiftPeopleSecond: [],
       nightShiftPeopleSecond: []
     };
+    this.refreshInterval = null;
+    this.refreshIntervalDuration = 5 * 60 * 1000; // 5 minutes in miliseconds
   }
 
 
   componentDidMount() {
     this.getSchedule();
+
+   this.interval = setInterval(() => {
+    console.log('5 min refresh interval started');
+    this.getSchedule();
+   }, this.refreshIntervalDuration);
+  }
+ 
+  componentWillUnmount() {
+    clearInterval(this.refreshInterval);
+  }
+
   }
 
   sendEmail = async () => {
