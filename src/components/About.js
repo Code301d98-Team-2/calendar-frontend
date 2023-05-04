@@ -13,8 +13,16 @@ class About extends Component {
                         <Card.Body>
                             <Card.Title>Jeanette Leyva</Card.Title>
                             <Card.Text>
-                                This is a wider card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.
+                                <p>Hi, I'm Jeanette. I recently got out the military to pursue a different career path.
+                                I am student at Code Fellows and soon to be enrolled in UC San Diego to pursue a computer science degree.
+                                I wanted to get into software development for game design and development. I fell in love with video games when I was five.
+                                The first few videos games that shaped my childhood were Marvel vs Capcom, Super Mario 64, Banjo Kazooie, Star Wars Ep 1: Racer, Medal of Honor and
+                                Donkey Kong.</p>
+                                I think I fell in love with video games because of my competitive nature and my love for problem solving.
+                                I am hoping to use some of those traits to become a good developer. Game developers will usually work with a creative team on
+                                graphic design, theme, characters and level design and layouts. Software developers will then take these ideas and design, develop and test the software
+                                making sure it meets the needs of the game's vision. I have an artistic eye so I am hoping that my years of experience in art, and my new training in software development
+                                will help reach my goals in becoming a game developer.
                             </Card.Text>
                             <a href="https://www.linkedin.com/in/kylewhiteseattle/">
                                 <Image src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Linkedin_glyph_svg-256.png" fluid style={{ height: '30px' }} />
