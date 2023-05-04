@@ -8,6 +8,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { Component } from "react";
+import moment from "moment";
 
 const locales = {
   "en-us": require("date-fns/locale/en-US"),
@@ -35,7 +36,7 @@ class EmployeeSchedule extends Component {
     };
   }
 
-  
+
   componentDidMount() {
     this.getSchedule();
     // this.getScheduleSecond();
@@ -52,7 +53,7 @@ class EmployeeSchedule extends Component {
       const dayShiftPeopleSecond = [];
       const midShiftPeopleSecond = [];
       const nightShiftPeopleSecond = [];
-      
+
       shifts[0].dayShift.forEach(employee => {
         dayShiftPeople.push(employee);
       });
@@ -65,7 +66,7 @@ class EmployeeSchedule extends Component {
         nightShiftPeople.push(employee);
       });
       console.log(nightShiftPeople);
-  
+
       shifts[1].dayShift.forEach(employee => {
         dayShiftPeopleSecond.push({
           firstName: employee.firstName,
@@ -90,50 +91,90 @@ class EmployeeSchedule extends Component {
         });
       });
       console.log(nightShiftPeopleSecond);
-  
+
       this.setState({ shifts, dayShiftPeople, midShiftPeople, nightShiftPeople, dayShiftPeopleSecond, midShiftPeopleSecond, nightShiftPeopleSecond });
     } catch (error) {
       console.log(error.message);
     }
   }
 
-render() {
-  return (
-    <div>
-      <CalendarApp
-        dayShiftPeople={this.state.dayShiftPeople}
-        midShiftPeople={this.state.midShiftPeople}
-        nightShiftPeople={this.state.nightShiftPeople}
-        dayShiftPeopleSecond={this.state.dayShiftPeopleSecond}
-        midShiftPeopleSecond={this.state.midShiftPeopleSecond}
-        nightShiftPeopleSecond={this.state.nightShiftPeopleSecond}
-      />
-    </div>
-  )
-}
+  render() {
+    return (
+      <div>
+        <CalendarApp
+          dayShiftPeople={this.state.dayShiftPeople}
+          midShiftPeople={this.state.midShiftPeople}
+          nightShiftPeople={this.state.nightShiftPeople}
+          dayShiftPeopleSecond={this.state.dayShiftPeopleSecond}
+          midShiftPeopleSecond={this.state.midShiftPeopleSecond}
+          nightShiftPeopleSecond={this.state.nightShiftPeopleSecond}
+        />
+      </div>
+    )
+  }
 }
 
-function eventStyleGetter(event, start, end, isSelected) {
-  let backgroundColor = "#f4f4f4";
-  let borderColor = "#ccc";
+const eventStyleGetter = (event, start, end, isSelected) => {
+  let backgroundColor, borderColor;
 
-  if (event.color === "blue") {
-    backgroundColor = "##a300ff";
-    borderColor = "##a300ff";
-  } else if (event.color === "green") {
+  if (event && event.color === "blue") {
+    backgroundColor = "#a300ff";
+    borderColor = "#a300ff";
+  } else if (event && event.color === "green") {
     backgroundColor = "#FF9800";
     borderColor = "#F57C00";
-  } else if (event.color === "orange") {
+  } else if (event && event.color === "orange") {
     backgroundColor = "#4CAF50";
     borderColor = "#388E3C";
   }
+
   return {
     style: {
-      backgroundColor: backgroundColor,
-      borderColor: borderColor,
+      backgroundColor,
+      backgroundImage: `linear-gradient(45deg, ${backgroundColor}, ${borderColor})`,
+      borderColor,
     },
   };
-}
+};
+
+const styles = {
+  event: {
+    backgroundColor: '#3174ad',
+    color: 'white',
+    borderRadius: '5px',
+    padding: '5px',
+    marginBottom: '10px',
+  },
+  agenda: {
+    backgroundColor: '#f5f5f5',
+    border: '1px solid #ccc',
+    padding: '10px',
+    marginBottom: '10px',
+    borderRadius: '5px',
+  },
+  agendaTime: {
+    fontWeight: 'bold',
+    color: '#3174ad',
+  },
+  agendaTitle: {
+    fontWeight: 'bold',
+    marginBottom: '5px',
+  },
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  todayButton: {
+    backgroundColor: '#3174ad',
+    color: 'white',
+    padding: '5px 10px',
+    borderRadius: '5px',
+    border: 'none',
+    cursor: 'pointer',
+    fontSize: '16px',
+  },
+};
 
 function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople, dayShiftPeopleSecond, midShiftPeopleSecond, nightShiftPeopleSecond }) {
 
@@ -219,12 +260,44 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople, dayShif
         eventComponent={Event}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 800, margin: "50px" }}
+        style={{ height: '80vh', width: '100%', padding: '20px' }}
         eventPropGetter={eventStyleGetter}
+        components={{
+          agenda: {
+            event: ({ event }) => (
+              <div style={styles.agenda}>
+                <div style={styles.agendaTime}>
+                  {moment(event.start).format('h:mm a')}
+                </div>
+                <div style={styles.agendaTitle}>{event.title}</div>
+              </div>
+            ),
+          },
+        }}
       />
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <Button style={{ marginRight: "50px", marginLeft: "975px" }}>Generate Schedule</Button>
-        <Button>Send Schedule</Button>
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "20px" }}>
+        <Button style={{
+          padding: "12px 24px",
+          background: "linear-gradient(45deg, #FF8A00, #FF0080)",
+          color: "#fff",
+          border: "none",
+          borderRadius: "25px",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          marginLeft: "20px"
+        }}>Generate Schedule</Button>
+        <Button
+          style={{
+            padding: "12px 24px",
+            background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "25px",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            marginLeft: "20px"
+          }}
+        >Send Schedule</Button>
       </div>
     </div>
   );

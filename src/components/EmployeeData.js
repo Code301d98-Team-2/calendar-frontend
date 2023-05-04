@@ -2,9 +2,6 @@ import axios from "axios";
 import { Component } from "react";
 import { Card, Col, Row, Container, Button } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
-
-import { Form, Button } from "react-bootstrap";
-
 import DeleteEmployeeModal from "./DeleteEmployee";
 import UpdateEmployeeModal from "./UpdateEmployee";
 
@@ -191,21 +188,12 @@ class EmployeeData extends Component {
                 <Container>
                     <Row>
                         {this.state.employees.map((employee, index) => (
-
                             <Col xs={6} md={3} key={index}>
-                        <Form onSubmit={this.handleEmployeeDeleteSubmit}>   
-                        <Form.Text name="firstName">{employee.firstName}</Form.Text>
-                        <Form.Text name="lastName">{employee.lastName}</Form.Text>
-                        <Form.Text name="level">{employee.level}</Form.Text>
-                        <Button variant="primary" type="submit"> Delete </Button>
-                        <Button variant="primary" type="submit"> Update </Button>
-                                </Form>
                                 <Card
                                     border="info"
                                     style={{ margin: 10 }}
                                     key={index}
                                 >
-                                   
                                      <Card.Header>{employee.firstName} {employee.lastName}</Card.Header>
                                     <Card.Body>Level: {employee.level}</Card.Body>
                                     <Card.Body>ID: {employee.employeeId}</Card.Body>
