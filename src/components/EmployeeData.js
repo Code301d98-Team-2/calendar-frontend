@@ -85,8 +85,36 @@ class EmployeeData extends Component {
         return (
             <>
                 <h1>This will show all employee data</h1>
-                <Button onClick={() => this.setState({ showDeleteModal: true })}>Delete Employee</Button>
-                <Button onClick={() => this.setState({ showUpdateModal: true })}>Update Employee</Button>
+                <Button
+                 onClick={() => this.setState({ showDeleteModal: true })}
+                 style={{
+                    padding: "12px 24px",
+                    background: "linear-gradient(45deg, #FF8A00, #FF0080)",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "25px",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    marginLeft: "20px"
+                 }}
+                 >
+                    Delete Employee
+                    </Button>
+                <Button
+                onClick={() => this.setState({ showUpdateModal: true })}
+                style={{
+                    padding: "12px 24px",
+                    background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "25px",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    marginLeft: "20px"
+                }}
+                >
+                    Update Employee
+                    </Button>
                 <Container>
                     <Row>
                         {this.state.employees.map((employee, index) => (

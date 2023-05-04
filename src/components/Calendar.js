@@ -56,13 +56,15 @@ class EmployeeSchedule extends Component {
       shifts[0].dayShift.forEach(employee => {
         dayShiftPeople.push(employee);
       });
+      console.log(dayShiftPeople);
       shifts[0].midShift.forEach(employee => {
         midShiftPeople.push(employee);
       });
+      console.log(midShiftPeople);
       shifts[0].nightShift.forEach(employee => {
         nightShiftPeople.push(employee);
       });
-
+      console.log(nightShiftPeople);
   
       shifts[1].dayShift.forEach(employee => {
         dayShiftPeopleSecond.push({
@@ -71,6 +73,7 @@ class EmployeeSchedule extends Component {
           level: employee.level
         });
       });
+      console.log(dayShiftPeopleSecond);
       shifts[1].midShift.forEach(employee => {
         midShiftPeopleSecond.push({
           firstName: employee.firstName,
@@ -78,6 +81,7 @@ class EmployeeSchedule extends Component {
           level: employee.level
         });
       });
+      console.log(midShiftPeopleSecond);
       shifts[1].nightShift.forEach(employee => {
         nightShiftPeopleSecond.push({
           firstName: employee.firstName,
@@ -85,6 +89,7 @@ class EmployeeSchedule extends Component {
           level: employee.level
         });
       });
+      console.log(nightShiftPeopleSecond);
   
       this.setState({ shifts, dayShiftPeople, midShiftPeople, nightShiftPeople, dayShiftPeopleSecond, midShiftPeopleSecond, nightShiftPeopleSecond });
     } catch (error) {
