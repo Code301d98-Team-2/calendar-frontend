@@ -68,11 +68,19 @@ class About extends Component {
                     <Card>
                         <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/43771360?v=4" />
                         <Card.Body>
-                            <Card.Title>Juan Olmeda</Card.Title>
+                            <Card.Title>Juan Olmedo</Card.Title>
                             <Card.Text>
-                                This is a wider card with supporting text below as a natural lead-in
-                                to additional content. This card has even longer content than the
-                                first to show that equal height action.
+                            I am a software developer experienced in researching, designing, developing, and modifying enterprise-wide systems and applications software. Proficient in Java, JavaScript, CSS, and HTML, I utilize tools such as Eclipse, Spring Tool Suite 4, VsCode, Github, Git, Command Line Interface, and ZSH to deliver real-world useful applications.<br></br>
+
+                            My recent projects showcase my skills in OOP, React JS, Node, and MongoDB. These include a Clue-style game called "Mastermind of Murder" and the "Can of Books" webpage, which allows users to add, remove, edit, and view lists of books saved on an Atlas database.<br></br>
+
+                            I hold a diploma in Systems Engineering Management from National University and Business Administration Accounting from Argosy University, as well as a Security Plus certification from CompTIA. I am currently enrolled in Full-Stack JavaScript certificate from Code Fellows.<br></br>
+
+                            Currently, I work as a Software Development Analyst for Northrop Grumman Corp, where I support the Enterprise Services Manager by providing data for the Atlassian tool suite and consult on license procurement efforts. I also develop and maintain engineering software lifecycle documents.<br></br>
+
+                            Previously, I worked as a Quality Engineer for Jet Propulsion Laboratory, where I was responsible for assuring design and performance compliance during acquisition of JPL Critical Items. I also ensured the delivery of 10+ flight items for the 2020 Mars Exploration rover.<br></br>
+
+                            I am excited to continue expanding my current skills and abilities and utilize my expertise to deliver high-quality enterprise-wide systems and applications software.<br></br>
                             </Card.Text>
                             <a href="https://www.linkedin.com/in/juan-olmedo-5613784a/">
                                 <Image src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Linkedin_glyph_svg-256.png" fluid style={{ height: '30px' }} />
