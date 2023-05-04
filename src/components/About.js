@@ -32,8 +32,7 @@ class About extends Component {
                         <Card.Body>
                             <Card.Title>Joshua Coffey</Card.Title>
                             <Card.Text>
-                                This card has supporting text below as a natural lead-in to
-                                additional content.{' '}
+                                I am a highly motivated developer who loves creating user friendly websites that make the users experience enjoyable.{' '}
                             </Card.Text>
                             <a href="https://www.linkedin.com/in/joshuacoffey23/">
                                 <Image src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Linkedin_glyph_svg-256.png" fluid style={{ height: '30px' }}></Image>
@@ -79,26 +78,6 @@ class About extends Component {
                                 <Image src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Linkedin_glyph_svg-256.png" fluid style={{ height: '30px' }} />
                             </a>
                             <a href="https://github.com/carlitos-1988">
-                                <Image src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-256.png" fluid style={{ height: '30px', marginLeft: '10px' }}></Image>
-                            </a>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </Card.Footer>
-                    </Card>
-                    <Card>
-                        <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/115496158?v=4" />
-                        <Card.Body>
-                            <Card.Title>Yaz Ahmed</Card.Title>
-                            <Card.Text>
-                                This is a wider card with supporting text below as a natural lead-in
-                                to additional content. This card has even longer content than the
-                                first to show that equal height action.
-                            </Card.Text>
-                            <a href="https://www.linkedin.com/in/yaahmeed/">
-                                <Image src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Linkedin_glyph_svg-256.png" fluid style={{ height: '30px' }} />
-                            </a>
-                            <a href="https://github.com/Yaahmeed">
                                 <Image src="https://cdn1.iconfinder.com/data/icons/logotypes/32/github-256.png" fluid style={{ height: '30px', marginLeft: '10px' }}></Image>
                             </a>
                         </Card.Body>

@@ -98,6 +98,10 @@ class EmployeeSchedule extends Component {
     }
   }
 
+  handleGenerateScheduleClick = () => {
+    this.getSchedule();
+  };
+
   render() {
     return (
       <div>
@@ -109,6 +113,32 @@ class EmployeeSchedule extends Component {
           midShiftPeopleSecond={this.state.midShiftPeopleSecond}
           nightShiftPeopleSecond={this.state.nightShiftPeopleSecond}
         />
+              <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "20px" }}>
+        <Button
+        onClick={this.handleGenerateScheduleClick}
+        style={{
+          padding: "12px 24px",
+          background: "linear-gradient(45deg, #FF8A00, #FF0080)",
+          color: "#fff",
+          border: "none",
+          borderRadius: "25px",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          marginLeft: "20px"
+        }}>Generate Schedule</Button>
+        <Button
+          style={{
+            padding: "12px 24px",
+            background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "25px",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            marginLeft: "20px"
+          }}
+        >Send Schedule</Button>
+      </div>
       </div>
     )
   }
@@ -275,30 +305,7 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople, dayShif
           },
         }}
       />
-      <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "20px" }}>
-        <Button style={{
-          padding: "12px 24px",
-          background: "linear-gradient(45deg, #FF8A00, #FF0080)",
-          color: "#fff",
-          border: "none",
-          borderRadius: "25px",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-          marginLeft: "20px"
-        }}>Generate Schedule</Button>
-        <Button
-          style={{
-            padding: "12px 24px",
-            background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
-            color: "#fff",
-            border: "none",
-            borderRadius: "25px",
-            cursor: "pointer",
-            transition: "all 0.3s ease",
-            marginLeft: "20px"
-          }}
-        >Send Schedule</Button>
-      </div>
+
     </div>
   );
 }
