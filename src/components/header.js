@@ -51,8 +51,6 @@ class Header extends Component {
                                     <NavDropdown.Item as={Link} to="/addEmployee">Add Employee</NavDropdown.Item>
                                     <NavDropdown.Item as={Link} to="/viewEmployees">View Employees</NavDropdown.Item>
                                     <NavDropdown.Item as={Link} to="/displayCalendar">Generate Schedule</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Past Schedules</NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>
