@@ -38,7 +38,6 @@ class EmployeeSchedule extends Component {
     this.refreshIntervalDuration = 5 * 60 * 1000; // 5 minutes in miliseconds
   }
 
-
   componentDidMount() {
     this.getSchedule();
 
