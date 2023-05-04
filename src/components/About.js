@@ -13,7 +13,7 @@ class About extends Component {
                         <Card.Body>
                             <Card.Title>Jeanette Leyva</Card.Title>
                             <Card.Text>
-                                Hi, I'm Jeanette. I recently got out the military to pursue a different career path. 
+                            Hi, I'm Jeanette. I recently got out the military to pursue a different career path. 
                                 I am student at Code Fellows and soon to be enrolled in UC San Diego to pursue a computer science degree. 
                                 I wanted to get into software development for game design and development. I fell in love with video games when I was five.
                                 The first few videos games that shaped my childhood were Marvel vs Capcom, Super Mario 64, Banjo Kazooie, Star Wars Ep 1: Racer, Medal of Honor and 
