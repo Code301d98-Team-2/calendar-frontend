@@ -29,7 +29,7 @@ class EmployeeData extends Component {
             this.setState({ authToken: res.__raw });
 
             console.log("res obj from token:", res);
-            console.log("res from token: " + res.__raw);
+            // console.log("res from token: " + res.__raw);
 
             try {
                 let url = `${process.env.REACT_APP_SERVER}/getallemployees`;
@@ -54,13 +54,17 @@ class EmployeeData extends Component {
     };
 
     updateEmployee = async (employeeToUpdate) => {
+        console.log("Updating employee:", employeeToUpdate);
         try {
-            let url = `${process.env.REACT_APP_SERVER}/employees/${employeeToUpdate._id}`;
+            let url = `${process.env.REACT_APP_SERVER}/employee/${employeeToUpdate._id}`;
             let urlUpdate = await axios.put(url, employeeToUpdate);
             let updatedEmployeeArr = this.state.employees.map(existingEmployee => {
                 return existingEmployee._id === employeeToUpdate._id ? urlUpdate.data : existingEmployee
             })
             this.setState({ employees: updatedEmployeeArr });
+            this.handleUpdateModalClose();
+            window.location.reload();
+            this.getEmployees();
         } catch (error) {
             console.log(error.message);
         }
@@ -68,7 +72,7 @@ class EmployeeData extends Component {
 
     deleteEmployee = async (employeeToDelete) => {
         try {
-            let url = `${process.env.REACT_APP_SERVER}/employees/${employeeToDelete._id}`;
+            let url = `${process.env.REACT_APP_SERVER}/employee/${employeeToDelete._id}`;
             await axios.delete(url);
             let updatedEmployees = this.state.employees.filter(employee => employee._id !== employeeToDelete._id)
             this.setState({ employees: updatedEmployees });
@@ -114,7 +118,7 @@ class EmployeeData extends Component {
                     employees={this.state.employees}
                     selectedEmployee={this.state.selectedEmployee}
                     onSelectEmployee={e => this.setState({ selectedEmployee: this.state.employees[e.target.value] })}
-                    onUpdate={this.updateEmployee}
+                    onUpdate={updatedInfo => this.updateEmployee({ ...this.state.selectedEmployee, ...updatedInfo })}
                 />
             </>
         )
