@@ -43,13 +43,55 @@ class DeleteEmployeeModal extends Component {
                                     </option>
                                 ))}
                             </select>
-                            <Button onClick={this.handleDeleteConfirm}>Delete</Button>
+                            <Button
+                            onClick={this.handleDeleteConfirm}
+                            style={{
+                                padding: "12px 24px",
+                                background: "linear-gradient(45deg, #FF8A00, #FF0080)",
+                                color: "#fff",
+                                border: "none",
+                                borderRadius: "25px",
+                                cursor: "pointer",
+                                transition: "all 0.3s ease",
+                                marginLeft: "20px"
+                            }}
+                            >
+                                Delete
+                                </Button>
                         </>
                     ) : (
                         <>
                             <p>Are you sure you want to delete {selectedEmployee.firstName} {selectedEmployee.lastName}?</p>
-                            <Button onClick={this.handleConfirmDelete}>Confirm</Button>
-                            <Button onClick={this.handleCancelDelete}>Cancel</Button>
+                            <Button
+                            onClick={this.handleConfirmDelete}
+                            style={{
+                                padding: "12px 24px",
+                                background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
+                                color: "#fff",
+                                border: "none",
+                                borderRadius: "25px",
+                                cursor: "pointer",
+                                transition: "all 0.3s ease",
+                                marginLeft: "20px"
+                            }}
+                            >
+                                Confirm
+                                </Button>
+                            <Button
+                            onClick={this.handleCancelDelete}
+                            style={{
+                                padding: "12px 24px",
+                                background: "linear-gradient(45deg, #FF8A00, #FF0080)",
+                                color: "#fff",
+                                border: "none",
+                                borderRadius: "25px",
+                                cursor: "pointer",
+                                transition: "all 0.3s ease",
+                                marginLeft: "20px"
+                            }}
+                            >
+                                Cancel
+                                </Button>
                         </>
                     )}
                 </Modal.Body>

@@ -116,7 +116,18 @@ class UpdateEmployeeForm extends Component {
                             </Form.Select>
                         </Col>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button
+                    style={{
+                        padding: "12px 24px",
+                        background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: "25px",
+                        cursor: "pointer",
+                        transition: "all 0.3s ease",
+                        marginLeft: "20px"
+                    }}
+                    type="submit">
                         Update Employee
                     </Button>
                 </Form>

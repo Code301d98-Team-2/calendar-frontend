@@ -20,12 +20,33 @@ class Body extends Component {
                         <Subhead fontSize={18}>A solution to scedule your employees for work </Subhead>
                         <Flex mt={3}>
                             <Link to="/displayCalendar" className="cta-link">
-                                <CallToAction bg="grey" mr={3}>
+                                <CallToAction
+                                style={{
+                                    padding: "12px 24px",
+                                    background: "linear-gradient(45deg, #FF80CC, #FF0080)",
+                                    color: "#fff",
+                                    border: "none",
+                                    borderRadius: "25px",
+                                    cursor: "pointer",
+                                    transition: "all 0.3s ease",
+                                }}
+                                bg="grey"
+                                mr={3}>
                                     Start Scheduling
                                 </CallToAction>
                             </Link>
                             <Link to="/addEmployee" className="cta-link">
-                                <CallToAction>Add an Employee</CallToAction>
+                                <CallToAction
+                                style={{
+                                    padding: "12px 24px",
+                                    background: "linear-gradient(45deg, #00BFFF, #ADD8E6)",
+                                    color: "#fff",
+                                    border: "none",
+                                    borderRadius: "25px",
+                                    cursor: "pointer",
+                                    transition: "all 0.3s ease",
+                                }}
+                                >Add an Employee</CallToAction>
                             </Link>
                         </Flex>
                     </Hero>

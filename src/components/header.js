@@ -39,7 +39,7 @@ class Header extends Component {
     render() {
         return (
             <>
-                <Navbar bg="light" expand="lg">
+                <Navbar className="my-header" bg="light" expand="lg">
                     <Container>
                         <Navbar.Brand as={Link} to="/">My Work Schedule</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
