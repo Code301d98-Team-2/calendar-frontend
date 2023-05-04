@@ -38,7 +38,7 @@ class EmployeeForm extends Component{
     render(){
         return(
             <>
-            <Form onSubmit={this.handleEmployeeSubmit}>
+            <Form style={{ margin: '50px', padding: '0' }} onSubmit={this.handleEmployeeSubmit}>
                 <Form.Group as={Row} className="mb-3" controlId="fName">
                     <Form.Label column sm={2}>
                     First Name:
@@ -84,8 +84,24 @@ class EmployeeForm extends Component{
                 </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3">
+
                     <Col sm={{ span: 10, offset: 2 }}>
-                    <Button type="submit">Save User</Button>
+                    <Button
+                    variant="success"
+                    type="submit"
+                    style={{
+                        padding: "12px 24px",
+                        background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: "25px",
+                        cursor: "pointer",
+                        transition: "all 0.3s ease",
+                    }}
+                    >
+                    Save User
+                    </Button>
+
                     </Col>
                 </Form.Group>
                 
