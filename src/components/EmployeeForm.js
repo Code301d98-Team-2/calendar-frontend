@@ -84,6 +84,7 @@ class EmployeeForm extends Component{
                 </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3">
+
                     <Col sm={{ span: 10, offset: 2 }}>
                     <Button
                     variant="success"
@@ -100,6 +101,7 @@ class EmployeeForm extends Component{
                     >
                     Save User
                     </Button>
+
                     </Col>
                 </Form.Group>
                 
