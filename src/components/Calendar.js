@@ -51,8 +51,6 @@ class EmployeeSchedule extends Component {
     clearInterval(this.refreshInterval);
   }
 
-  }
-
   sendEmail = async () => {
     try {
       let url = `${process.env.REACT_APP_SERVER}/emailemployees`;
@@ -150,8 +148,23 @@ class EmployeeSchedule extends Component {
           borderRadius: "25px",
           cursor: "pointer",
           transition: "all 0.3s ease",
-          marginLeft: "20px"
-        }}>Generate Schedule</Button>
+          marginLeft: "20px",
+          transform: "scale(1)",
+        }}
+        onMouseDown={() => this.setState({ isPressed: true })}
+onMouseUp={() => this.setState({ isPressed: false })}
+onTouchStart={() => this.setState({ isPressed: true })}
+onTouchEnd={() => this.setState({ isPressed: false })}
+>
+<span
+  style={{
+    display: "inline-block",
+    transform: this.state.isPressed ? "scale(0.95)" : "scale(1)",
+    transition: "transform 0.3s ease",
+  }}
+>
+  Generate Schedule
+</span></Button>
         <Button
         onClick={this.handleSendEmailClick}
           style={{
@@ -162,9 +175,24 @@ class EmployeeSchedule extends Component {
             borderRadius: "25px",
             cursor: "pointer",
             transition: "all 0.3s ease",
-            marginLeft: "20px"
+            marginLeft: "20px",
+            transform: "scale(1)",
           }}
-        >Send Schedule</Button>
+          onMouseDown={() => this.setState({ isPressed: true })}
+  onMouseUp={() => this.setState({ isPressed: false })}
+  onTouchStart={() => this.setState({ isPressed: true })}
+  onTouchEnd={() => this.setState({ isPressed: false })}
+>
+  <span
+    style={{
+      display: "inline-block",
+      transform: this.state.isPressed ? "scale(0.95)" : "scale(1)",
+      transition: "transform 0.3s ease",
+    }}
+  >
+    Send Schedule
+  </span>
+  </Button>
       </div>
       </div>
     )
