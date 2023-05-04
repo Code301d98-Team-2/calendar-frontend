@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Modal, Form } from "react-bootstrap";
-import EmployeeForm from "./EmployeeForm";
+import UpdateEmployeeForm from "./UpdateEmployeeForm";
 
 class UpdateEmployeeModal extends Component {
     render() {
@@ -17,7 +17,13 @@ class UpdateEmployeeModal extends Component {
                             <option key={index} value={index}>{employee.firstName} {employee.lastName}</option>
                         ))}
                     </Form.Select>
-                    {selectedEmployee && <EmployeeForm employee={selectedEmployee} onSave={onUpdate} />}
+                    {selectedEmployee && (
+                        <UpdateEmployeeForm
+                            key={selectedEmployee._id}
+                            employee={selectedEmployee}
+                            onUpdate={onUpdate}
+                        />
+                    )}
                 </Modal.Body>
             </Modal>
         );
