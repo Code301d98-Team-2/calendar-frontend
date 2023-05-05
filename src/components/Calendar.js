@@ -38,9 +38,9 @@ class EmployeeSchedule extends Component {
     this.refreshIntervalDuration = 5 * 60 * 1000; // 5 minutes in miliseconds
   }
 
-
   componentDidMount() {
     this.getSchedule();
+
    this.interval = setInterval(() => {
     console.log('5 min refresh interval started');
     this.getSchedule();
@@ -49,6 +49,16 @@ class EmployeeSchedule extends Component {
  
   componentWillUnmount() {
     clearInterval(this.refreshInterval);
+  }
+
+  sendEmail = async () => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/emailemployees`;
+      let urlData = await axios.get(url);
+      console.log(urlData);
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   getSchedule = async () => {
@@ -108,6 +118,10 @@ class EmployeeSchedule extends Component {
     }
   }
 
+  handleSendEmailClick = () => {
+    this.sendEmail();
+  }
+
   handleGenerateScheduleClick = () => {
     this.getSchedule();
   };
@@ -134,9 +148,25 @@ class EmployeeSchedule extends Component {
           borderRadius: "25px",
           cursor: "pointer",
           transition: "all 0.3s ease",
-          marginLeft: "20px"
-        }}>Generate Schedule</Button>
+          marginLeft: "20px",
+          transform: "scale(1)",
+        }}
+        onMouseDown={() => this.setState({ isPressed: true })}
+onMouseUp={() => this.setState({ isPressed: false })}
+onTouchStart={() => this.setState({ isPressed: true })}
+onTouchEnd={() => this.setState({ isPressed: false })}
+>
+<span
+  style={{
+    display: "inline-block",
+    transform: this.state.isPressed ? "scale(0.95)" : "scale(1)",
+    transition: "transform 0.3s ease",
+  }}
+>
+  Generate Schedule
+</span></Button>
         <Button
+        onClick={this.handleSendEmailClick}
           style={{
             padding: "12px 24px",
             background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
@@ -145,9 +175,24 @@ class EmployeeSchedule extends Component {
             borderRadius: "25px",
             cursor: "pointer",
             transition: "all 0.3s ease",
-            marginLeft: "20px"
+            marginLeft: "20px",
+            transform: "scale(1)",
           }}
-        >Send Schedule</Button>
+          onMouseDown={() => this.setState({ isPressed: true })}
+  onMouseUp={() => this.setState({ isPressed: false })}
+  onTouchStart={() => this.setState({ isPressed: true })}
+  onTouchEnd={() => this.setState({ isPressed: false })}
+>
+  <span
+    style={{
+      display: "inline-block",
+      transform: this.state.isPressed ? "scale(0.95)" : "scale(1)",
+      transition: "transform 0.3s ease",
+    }}
+  >
+    Send Schedule
+  </span>
+  </Button>
       </div>
       </div>
     )
@@ -179,11 +224,13 @@ const eventStyleGetter = (event, start, end, isSelected) => {
 
 const styles = {
   event: {
-    backgroundColor: '#3174ad',
-    color: 'white',
-    borderRadius: '5px',
+    backgroundColor: '#007acc',
+    color: '#fff',
+    borderRadius: '0px',
+    border: 'none',
+    margin: '0',
     padding: '5px',
-    marginBottom: '10px',
+    fontSize: '16px',
   },
   agenda: {
     backgroundColor: '#f5f5f5',
@@ -214,6 +261,13 @@ const styles = {
     cursor: 'pointer',
     fontSize: '16px',
   },
+  dayHeader: {
+    backgroundColor: '#f2f2f2',
+    fontWeight: 'bold',
+    fontSize: '18px',
+    padding: '10px',
+    textAlign: 'center',
+  }
 };
 
 function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople, dayShiftPeopleSecond, midShiftPeopleSecond, nightShiftPeopleSecond }) {
@@ -301,8 +355,13 @@ function CalendarApp({ dayShiftPeople, midShiftPeople, nightShiftPeople, dayShif
         startAccessor="start"
         endAccessor="end"
         style={{ height: '80vh', width: '100%', padding: '20px' }}
-        eventPropGetter={eventStyleGetter}
+        eventPropGetter={
+        eventStyleGetter
+        }
         components={{
+          dayHeader: ({ label }) => (
+            <div style={styles.dayHeader}>(label)</div>
+          ),
           agenda: {
             event: ({ event }) => (
               <div style={styles.agenda}>

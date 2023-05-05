@@ -54,6 +54,7 @@ class About extends Component {
         };
 
         return (
+
             <>
             {/* <body style={bodyStyle}></body> */}
             <div style={ourTeam}>
@@ -146,5 +147,5 @@ class About extends Component {
         )
     }
 };
-// git pull test
+// git pull test.
 export default About;

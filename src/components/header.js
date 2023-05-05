@@ -15,15 +15,15 @@ const ProfileDropdown = () => {
                         className="profile-image"
                         src={user.picture}
                         alt={user.name}
-                        width="30"
-                        height="30"
+                        width="70"
+                        height="70"
                     />
                 }
                 id="profile-nav-dropdown"
             >
                 <NavDropdown.Item disabled>{user.name}</NavDropdown.Item>
                 <NavDropdown.Item disabled>{user.email}</NavDropdown.Item>
-                <NavDropdown.Item disabled>{user['https://medicalendar.netlify.app//employee_id']}</NavDropdown.Item>
+                <NavDropdown.Item disabled>{user['https://medicalendar.netlify.app/employee_id']}</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item
                     onClick={() => logout({ returnTo: window.location.origin })}
@@ -41,7 +41,7 @@ class Header extends Component {
             <>
                 <Navbar className="my-header" bg="light" expand="lg">
                     <Container>
-                        <Navbar.Brand as={Link} to="/">My Work Schedule</Navbar.Brand>
+                        <Navbar.Brand as={Link} to="/">MediCalendar</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
@@ -50,9 +50,7 @@ class Header extends Component {
                                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                     <NavDropdown.Item as={Link} to="/addEmployee">Add Employee</NavDropdown.Item>
                                     <NavDropdown.Item as={Link} to="/viewEmployees">View Employees</NavDropdown.Item>
-                                    <NavDropdown.Item as={Link} to="/displayCalendar">Generate Schedule</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Past Schedules</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/displayCalendar">Scheduling</NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>

@@ -4,6 +4,7 @@ import { Card, Col, Row, Container, Button } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import DeleteEmployeeModal from "./DeleteEmployee";
 import UpdateEmployeeModal from "./UpdateEmployee";
+import EmployeeDetailsModal from "./EmployeeDetails";
 
 
 
@@ -16,6 +17,7 @@ class EmployeeData extends Component {
             selectedEmployee: null,
             showDeleteModal: false,
             showUpdateModal: false,
+            showDetailsModal: false,
         };
     }
 
@@ -54,6 +56,14 @@ class EmployeeData extends Component {
         this.setState({ showUpdateModal: false });
     };
 
+    handleDetailsModalOpen = (employee) => {
+        this.setState({ showDetailsModal: true, selectedEmployee: employee });
+    };
+
+    handleDetailsModalClose = () => {
+        this.setState({ showDetailsModal: false });
+    };
+
     updateEmployee = async (employeeToUpdate) => {
         console.log("Updating employee:", employeeToUpdate);
         try {
@@ -85,40 +95,51 @@ class EmployeeData extends Component {
     render() {
         return (
             <>
-                <h1>This will show all employee data</h1>
+                <div className="employee-header">
+                    <h1>Employee Database</h1>
+                </div>
 
-                <Button
-                 onClick={() => this.setState({ showDeleteModal: true })}
-                 style={{
-                    padding: "12px 24px",
-                    background: "linear-gradient(45deg, #FF8A00, #FF0080)",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "25px",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                    marginLeft: "20px"
-                 }}
-                 >
-                    Delete Employee
+                <div style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginBottom: "30px",
+                    marginTop: "15px",
+                }}>
+                    <Button className="employee-btn"
+                        onClick={() => this.setState({ showDeleteModal: true })}
+                        style={{
+                            padding: "12px 24px",
+                            background: "linear-gradient(45deg, #FF8A00, #FF0080)",
+                            border: "none",
+                            borderRadius: "25px",
+                            color: "#fff",
+                            cursor: "pointer",
+                            transition: "all 0.3s ease",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        Delete Employee
                     </Button>
-                <Button
-                onClick={() => this.setState({ showUpdateModal: true })}
-                style={{
-                    padding: "12px 24px",
-                    background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "25px",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                    marginLeft: "20px"
-                }}
-                >
-                    Update Employee
+                    <Button className="employee-btn"
+                        onClick={() => this.setState({ showUpdateModal: true })}
+                        style={{
+                            padding: "12px 24px",
+                            background: "linear-gradient(45deg, #00FFA6, #00FFD4)",
+                            border: "none",
+                            borderRadius: "25px",
+                            color: "#fff",
+                            cursor: "pointer",
+                            transition: "all 0.3s ease",
+                            marginRight: "25px",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        Update Employee
                     </Button>
+                </div>
 
-                <Container>
+                <Container style={{ marginTop: "10px" }}>
                     <Row>
                         {this.state.employees.map((employee, index) => (
                             <Col xs={6} md={3} key={index}>
@@ -126,15 +147,21 @@ class EmployeeData extends Component {
                                     border="info"
                                     style={{ margin: 10 }}
                                     key={index}
+                                    onClick={() => this.handleDetailsModalOpen(employee)}
                                 >
-                                     <Card.Header>{employee.firstName} {employee.lastName}</Card.Header>
-                                    <Card.Body>Level: {employee.level}</Card.Body>
-                                    <Card.Body>ID: {employee.employeeId}</Card.Body>
+                                    <Card.Header><b>{employee.firstName} {employee.lastName}</b></Card.Header>
+                                    <Card.Body><b>Nurse Level:</b> {employee.level}</Card.Body>
+                                    <Card.Body></Card.Body>
                                 </Card>
                             </Col>
                         ))}
                     </Row>
                 </Container>
+                <EmployeeDetailsModal
+                    show={this.state.showDetailsModal}
+                    onHide={this.handleDetailsModalClose}
+                    employee={this.state.selectedEmployee}
+                />
                 <DeleteEmployeeModal
                     show={this.state.showDeleteModal}
                     onHide={this.handleDeleteModalClose}
@@ -151,6 +178,7 @@ class EmployeeData extends Component {
                     onSelectEmployee={e => this.setState({ selectedEmployee: this.state.employees[e.target.value] })}
                     onUpdate={updatedInfo => this.updateEmployee({ ...this.state.selectedEmployee, ...updatedInfo })}
                 />
+
             </>
         )
     }

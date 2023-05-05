@@ -5,13 +5,13 @@ class Footer extends Component{
 
     render(){
         return(
-            <Navbar fixed="bottom">
+            <Navbar>
             <Container>
-              <Navbar.Brand href="#home">Workshift Scheduling App</Navbar.Brand>
+              <Navbar.Brand href="#home">MediCalendar &copy; 2023 | All Rights Reserved</Navbar.Brand>
               <Navbar.Toggle />
               <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
-                  Signed in as: <a href="#login">Team 2</a>
+                  Made Lovingly with React
                 </Navbar.Text>
               </Navbar.Collapse>
             </Container>
