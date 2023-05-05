@@ -8,7 +8,7 @@ class UpdateEmployeeModal extends Component {
         return (
             <Modal show={show} onHide={onHide} size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Modify Employee</Modal.Title>
+                    <Modal.Title>Update Employee</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form.Select onChange={onSelectEmployee} value={employees.indexOf(selectedEmployee)}>
