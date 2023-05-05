@@ -34,7 +34,7 @@ class UpdateEmployeeForm extends Component {
         const { employee } = this.props;
 
         if (!employee) {
-            return <div>Please select an employee to update.</div>;
+            return <div>Please Select Employee to Update</div>;
         }
 
         return (
@@ -90,7 +90,7 @@ class UpdateEmployeeForm extends Component {
                             <Form.Control
                                 type="text"
                                 name="employeeId"
-                                placeholder="JD12345"
+                                placeholder="12345"
                                 value={this.state.employeeId}
                                 onChange={this.handleInputChange}
                             />
