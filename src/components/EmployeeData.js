@@ -97,6 +97,7 @@ class EmployeeData extends Component {
             <>
                 <div className="employee-header">
                     <h1>Employee Database</h1>
+                    <h6>Click on an Employee Card for Full Data</h6>
                 </div>
 
                 <div style={{

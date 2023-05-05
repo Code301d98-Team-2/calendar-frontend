@@ -85,7 +85,7 @@ class EmployeeForm extends Component {
                                         </Form.Label>
                                     </Col>
                                     <Col sm={9} md={8}>
-                                        <Form.Control type="text" placeholder="JD12345" style={{ width: "400px" }} />
+                                        <Form.Control type="text" placeholder="12345" style={{ width: "400px" }} />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} className="justify-content-md-center mb-3" controlId="employeeLevel">
