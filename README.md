@@ -15,11 +15,11 @@
 
 ## Version Control: 1.4.0
 
-Updated on 5-5-23 - Site is ready with MVP requirements intact and first level styling applied
-Updated on 5-4-23 - Created CRUD functionality within employee database feature. Implemented E-mail API to calendar changes.
-Updated on 5-3-23 - Application fully deployed on Render and Netlify
-Updated on 5-2-23 - Updated to include calendar component and Auth0 implementation
-Updated on 5-1-23 - Application now has basic front and back end framework structure
+- Updated on 5-5-23 - Site is ready with MVP requirements intact and first level styling applied
+- Updated on 5-4-23 - Created CRUD functionality within employee database feature. Implemented E-mail API to calendar changes.
+- Updated on 5-3-23 - Application fully deployed on Render and Netlify
+- Updated on 5-2-23 - Updated to include calendar component and Auth0 implementation
+- Updated on 5-1-23 - Application now has basic front and back end framework structure
 
 ## Overview
 
