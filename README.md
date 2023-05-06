@@ -15,14 +15,15 @@
 
 ## Version Control: 1.4.0
 
-Updated on 4-21-23 
-Updated on 4-20-23 
-Updated on 4-19-23 
-Updated on 4-18-23 
+Updated on 5-5-23 - Site is ready with MVP requirements intact and first level styling applied
+Updated on 5-4-23 - Created CRUD functionality within employee database feature. Implemented E-mail API to calendar changes.
+Updated on 5-3-23 - Application fully deployed on Render and Netlify
+Updated on 5-2-23 - Updated to include calendar component and Auth0 implementation
+Updated on 5-1-23 - Application now has basic front and back end framework structure
 
 ## Overview
 
-This application will generate shifts in a random order and ensure people work all shifts available. It will also ensure that shift constrains are being adhered to for example minimum staff and seniority requirements for patient care. 
+This application will generate shifts in a random order and ensure people work all shifts available. It will also ensure that shift constrainst are being adhered to for example minimum staff and seniority requirements for patient care. 
 
 ## Why We Built This Application
 
@@ -33,22 +34,14 @@ Many healthcare institutions still rely on paper-based scheduling systems, which
 1. Create a new React application on your local machine.
 2. Create a GitHub repository and clone this project onto your local machine into the new React application folder.
 3. Create a new user account on SendGrid and get your own personal API key.
-4. 
-4. Create a .env file and change the API key using the sample in the .env.sample file
-5. Start the application using your favorite code editor!
+4. Create an Auth0 login and acquire user information (see setup instructions on Auth0)
+5. Create a .env file and implement all environment variables for Auth0 and REACT_APP_SERVER
+6. Run 'npm i' and 'npm update' on your local machine to install all dependencies
+7. Start the application using your favorite code editor!
 
 ## Architecture
 
-Built using React, Bootstrap, and axios API handler.
-
-## Change Log
-
-04-21-2023 3:19 Aplication now 
-04-20-2023 3:44 Application is now refactored and componentized 
-04-19-2023 3:34 Application is fully setup with a React repository and implementaion of API keys.
-04-18-2023 4:16 Application 
-04-18-2023 5:19 Application 
-04-18-2023 5:42 Application now has 
+Built using React, Bootstrap, Auth0, Sass, CSS3, HTML5, JavaScript, and axios API handler.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
