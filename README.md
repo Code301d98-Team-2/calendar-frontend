@@ -8,6 +8,10 @@
 - Juan Olmedo
 - Jeanette Leyva
 
+## Site
+
+https://medicalendar.netlify.app/
+
 ### PM Tools
 
 - [Trello] https://trello.com/b/P9d5qZe6/team-2-app
